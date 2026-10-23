@@ -1,0 +1,6 @@
+{
+  "name": "HydroSense AI",
+  "description": "Akıllı Site Su Yönetimi, Siemens VFD Basınç Optimizasyonu ve Atık Su Geri Kazanım SCADA Simülatörü",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
