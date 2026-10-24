@@ -14,6 +14,7 @@ import {
   Cpu, 
   Lightbulb
 } from 'lucide-react';
+import { AiLogTerminal, PredictiveMaintenanceCard } from './TelemetryBar';
 
 interface GeminiAdvisorProps {
   telemetry: TelemetryData;
@@ -100,7 +101,6 @@ export const GeminiAdvisor: React.FC<GeminiAdvisorProps> = ({ telemetry }) => {
 
   return (
     <div className="space-y-6">
-      
       {/* Header & Sub-tabs */}
       <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -110,7 +110,7 @@ export const GeminiAdvisor: React.FC<GeminiAdvisorProps> = ({ telemetry }) => {
             </div>
             <div>
               <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                Gemini 3.8 Flash Yapay Zekâ Mühendislik ve ESG Asistanı
+                Yapay Zekâ Mühendislik ve ESG Asistanı
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
                 SCADA telemetrisini anlık yorumlar, membran kirlenmesini öngörür ve 20 dairelik sakin bültenleri üretir
@@ -169,7 +169,6 @@ export const GeminiAdvisor: React.FC<GeminiAdvisorProps> = ({ telemetry }) => {
 
             {diagnosis ? (
               <div className="mt-6 space-y-6">
-                
                 {/* Summary Banner */}
                 <div className="p-4 bg-sky-50/60 border border-sky-100 rounded-xl flex items-start gap-3">
                   <Sparkles className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
@@ -182,7 +181,6 @@ export const GeminiAdvisor: React.FC<GeminiAdvisorProps> = ({ telemetry }) => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  
                   {/* Item 1: Membrane Health */}
                   <div className="p-4 bg-slate-50 rounded-xl border border-slate-200/80">
                     <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
@@ -215,7 +213,6 @@ export const GeminiAdvisor: React.FC<GeminiAdvisorProps> = ({ telemetry }) => {
                       {diagnosis.waterRecoveryComment}
                     </p>
                   </div>
-
                 </div>
 
                 {/* Recommendations */}
@@ -235,7 +232,6 @@ export const GeminiAdvisor: React.FC<GeminiAdvisorProps> = ({ telemetry }) => {
                     ))}
                   </ul>
                 </div>
-
               </div>
             ) : (
               <div className="mt-8 text-center py-8 bg-slate-50 rounded-xl border border-dashed border-slate-200">
@@ -280,7 +276,6 @@ export const GeminiAdvisor: React.FC<GeminiAdvisorProps> = ({ telemetry }) => {
 
             {bulletin ? (
               <div className="mt-6 space-y-6">
-                
                 <div className="p-6 rounded-xl border border-emerald-200 bg-emerald-50/30">
                   <div className="flex items-start justify-between gap-4">
                     <h4 className="text-base font-bold text-slate-900 leading-snug">
@@ -316,7 +311,6 @@ export const GeminiAdvisor: React.FC<GeminiAdvisorProps> = ({ telemetry }) => {
                     <span>Tüm 20 Daire İle Paylaşıma Uygundur</span>
                   </div>
                 </div>
-
               </div>
             ) : (
               <div className="mt-8 text-center py-8 bg-slate-50 rounded-xl border border-dashed border-slate-200">
@@ -333,6 +327,9 @@ export const GeminiAdvisor: React.FC<GeminiAdvisorProps> = ({ telemetry }) => {
         </div>
       )}
 
+      {/* AI Günlüğü ve Bakım Tahmini */}
+      <PredictiveMaintenanceCard telemetry={telemetry} />
+      <AiLogTerminal telemetry={telemetry} />
     </div>
   );
 };

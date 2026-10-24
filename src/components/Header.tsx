@@ -7,12 +7,14 @@ interface HeaderProps {
   userRole: 'management' | 'resident';
   setUserRole: (role: 'management' | 'resident') => void;
   selectedApartmentNumber: string;
+    onLogoClick?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   currentTab,
   setCurrentTab,
   userRole,
+  onLogoClick,
 }) => {
   return (
     <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200">
@@ -20,7 +22,11 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center justify-between gap-8 h-16">
           
           {/* Zone 1: Logo & Marka */}
-          <div className="flex items-center gap-3 shrink-0">
+                <div
+            onClick={onLogoClick}
+            title="Rol seçim ekranına dön"
+            className="flex items-center gap-3 shrink-0 cursor-pointer hover:opacity-80 transition-opacity select-none"
+          >
             <div className="w-9 h-9 rounded-lg bg-sky-600 flex items-center justify-center text-white shadow-xs">
               <Droplets className="w-5 h-5" />
             </div>
